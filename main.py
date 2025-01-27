@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
 app = FastAPI()
-# add comment for build trigger
+# add comment for build trigger faster
 
 
 @app.get("/")
