@@ -7,6 +7,10 @@ pipeline {
         MESSAGE = 'Hello from Jenkins!'
     }
 
+    triggers {
+        githubPush()
+    }
+
     stages {
         stage('Publish to Pub/Sub') {
             steps {
