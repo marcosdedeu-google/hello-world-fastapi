@@ -1,0 +1,45 @@
+[project]
+name = "hello-world-fastapi"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "mdedeu",email = "mdedeu@google.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi (>=0.115.14,<0.116.0)"
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.2.0",
+    "pydoclint>=0.6.6",
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+    "ruff>=0.12.2",
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pydoclint]
+allow-init-docstring = true
+style = "google"
+
+# Configure test paths
+[tool.pytest.ini_options]
+testpaths = ["src/**/*_test.py"]
+
+# Configure code coverage
+[tool.coverage.run]
+branch = true
+omit = ["*_test.py"]
+
+[tool.coverage.report]
+exclude_also = ["if __name__ == .__main__.:"]
+
+[tool.coverage.html]
+directory = "htmlcov"
+
